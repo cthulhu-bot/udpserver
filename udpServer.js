@@ -1,9 +1,8 @@
 var dgram = require("dgram");
 var sql = require("./lib/sql");
-//var mongo = require("./mongo");
 
-var conn_str = "Driver={SQL Server Native Client 11.0};Server=10.253.32.181,1433;Database=josh_qa;UID=josh_stupplebeen;PWD=Pr0m3th3u53;Connection Timeout=30;";
-//var conn_str = "Driver={SQL Server Native Client 11.0};Server=(local);Database=josh_test;Trusted_Connection={Yes}";
+// Plain text password bad
+var conn_str = "Driver={SQL Server Native Client 11.0};Server=10.253.32.181,1433;Database=josh_qa;UID=josh_stupplebeen;PWD=password;Connection Timeout=30;";
 
 sock = dgram.createSocket("udp4", function (msg, r)
 {
@@ -21,10 +20,6 @@ sock = dgram.createSocket("udp4", function (msg, r)
 				console.log("Error running query");
 				return;
 			}
-	//		console.log(results);
-	//		for (var i = 0; i < results.rows.length; i++) {
-	//		    console.log("Bar: " + results.rows[i][0]);
-	//		    console.log("First Name: " + results.rows[i][0] + " Last Name: " + results.rows[i][1]);
 	//		}
 		});
 	});
